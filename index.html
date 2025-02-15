@@ -4,7 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Crocodile Facts</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -12,6 +46,25 @@
         <p id="factDisplay">Click the button to get a random fact!</p>
         <button id="factButton">Get Random Fact</button>
     </div>
-    <script src="script.js"></script>
+    <script>
+        const crocodileFacts = [
+            { "fact": "Crocodiles are reptiles and belong to the order Crocodylia." },
+            { "fact": "They are found in tropical and subtropical regions around the world." },
+            { "fact": "Crocodiles can live for over 70 years in the wild." },
+            { "fact": "They are carnivorous and primarily feed on fish, birds, and mammals." },
+            { "fact": "Crocodiles have powerful jaws with a bite force of over 3,000 pounds per square inch." },
+            { "fact": "They are excellent swimmers and can hold their breath underwater for up to an hour." },
+            { "fact": "Crocodiles are ectothermic, meaning their body temperature is regulated by their environment." },
+            { "fact": "They have a unique ability to see in the dark due to a special membrane in their eyes." },
+            { "fact": "Crocodiles communicate through a variety of vocalizations, including growls and hisses." },
+            { "fact": "Some species of crocodiles can reach lengths of over 20 feet." }
+        ];
+
+        document.getElementById('factButton').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * crocodileFacts.length);
+            const randomFact = crocodileFacts[randomIndex].fact;
+            document.getElementById('factDisplay').innerText = randomFact;
+        });
+    </script>
 </body>
 </html>
